@@ -1,4 +1,4 @@
-POLICY ITERATION ALGORITHM
+## POLICY ITERATION ALGORITHM
 
 ## AIM
 To develop a Python program to find the optimal policy for the given MDP using the policy iteration algorithm.
@@ -38,6 +38,9 @@ def policy_improvement(V, P, gamma=1.0):
       new_pi = lambda S:{s:a for s,a in enumerate(np.argmax(Q,axis=1))}[S]
 
     return new_pi
+
+pi_2 = policy_improvement(V1, P)
+print_policy(pi_2, P, action_symbols=('<', '>'), n_cols=7)
 ~~~
 
 ## POLICY ITERATION FUNCTION
@@ -52,10 +55,33 @@ def policy_iteration(P, gamma=1.0, theta=1e-10):
       if old_pi == {s:pi(s) for s in range(len(P))}:
         break
     return V, pi
+
+
+optimal_V, optimal_pi = policy_iteration(P)
+
+
+print('Optimal policy and state-value function (PI):')
+print_policy(optimal_pi, P, action_symbols=('<', '>'), n_cols=7)
 ~~~
 OUTPUT:
 
 ## Policy 1:
+![Screenshot 2024-03-21 133346](https://github.com/LakshmanAdhireddy/policy-iteration-algorithm/assets/118707265/f461d94b-7ac4-4648-99cc-4ff4ce9c243f)
+
+## Policy Evaluation:
+![Screenshot 2024-03-21 133652](https://github.com/LakshmanAdhireddy/policy-iteration-algorithm/assets/118707265/2883aa83-36a0-479d-abc1-763df9b3e98c)
+
+## Improved Policy:
+![Screenshot 2024-03-21 133816](https://github.com/LakshmanAdhireddy/policy-iteration-algorithm/assets/118707265/67b20268-c726-4911-825f-dc92dff314d4)
+
+## Value function for improved policy:
+![Screenshot 2024-03-21 134030](https://github.com/LakshmanAdhireddy/policy-iteration-algorithm/assets/118707265/667a1e8e-d627-4b6a-980d-9c97f0a071ef)
+
+## Optimal Policy and State value function:
+![Screenshot 2024-03-21 134146](https://github.com/LakshmanAdhireddy/policy-iteration-algorithm/assets/118707265/3a34da24-d97e-452a-a37c-784ca81a8cdc)
+
+## State Value Function:
+![Screenshot 2024-03-21 134534](https://github.com/LakshmanAdhireddy/policy-iteration-algorithm/assets/118707265/e85b9cac-652f-41ca-a90c-8f6df696928e)
 
 
 ## RESULT:
